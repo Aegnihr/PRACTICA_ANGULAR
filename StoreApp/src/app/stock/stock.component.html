@@ -1,0 +1,58 @@
+<h1>Stock de productos</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <table *ngIf="ListOfProducts.length > 0" class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of ListOfProducts">
+                        <td scope="row" id="code">{{product.code}}</td>
+                        <td>{{product.description}}</td>
+                        <td>{{product.quantity}}</td>
+                        <td>{{product.price}}</td>
+                        <td>
+                            <button class="btn btn-primary" (click)="selectProduct(product.code)">Seleccionar</button>
+                            <button class="btn btn-danger" (click)="deleteProduct(product.code)">Borrar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 *ngIf="ListOfProducts.length === 0">No hay ningun producto disponible</h3>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h1>Producto</h1>
+        </div>
+        <div class="col-3">
+            <form>
+                <div class="mb-3">
+                    <label for="Code" class="form-label">Code</label>
+                    <input type="number" id="inputCode" class="form-control" aria-describedby="ProdcutCode" name="code" [(ngModel)]="Product.code">
+                    <label for="Descrption" class="form-label">Description</label>
+                    <input type="text" id="InputDescription" class="form-control" name="description" [(ngModel)]="Product.description">
+                    <label for="Quantity" class="form-label">Quantity</label>
+                    <input type="number" id="InputQuantity" class="form-control" name="quantity" [(ngModel)]="Product.quantity">
+                    <label for="Price" class="form-label">Price</label>
+                    <input type="number" id="InputPrice" class="form-control" name="price" [(ngModel)]="Product.price">
+                </div>
+                <div>
+                    <button class="btn btn-success" (click)="addProduct(Product)">Agregar</button>
+                    <button class="btn btn-warning" (click)="modifyProduct(Product)">Modificar</button>
+                </div>
+              </form>
+        </div>
+        
+    </div>
+</div>
+

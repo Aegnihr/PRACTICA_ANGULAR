@@ -1,0 +1,8 @@
+.task_name{
+    background-color: rgb(158, 158, 158);
+    border-radius: 10px;
+    padding: 7px;
+}
+.card-body{
+    background-color: rgb(211, 205, 205);
+}
